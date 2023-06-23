@@ -1,0 +1,70 @@
+<html>
+<head>
+   
+    <title>login</title>
+</head>
+<body>
+    {% block content %}
+    <h1>Register Form</h1>
+    <form action="readata" method="POST" autocomplete="off">
+        {% csrf_token %}
+        <table>
+        <tr>
+            Search <input type="text" name="search" id="search" placeholder="Search">
+            
+        </tr><br><br>
+            <tr>
+                <td> <label for="name">Name</label><br>
+                <input type="text" id="name" name="name"><br></td>
+            </tr>
+       <tr>
+        <td><label for="phno">Phone Number</label><br>
+        <input type="text" id="phno" name="phno" ><br></td>
+        </tr>
+        <tr>
+            <td> <label for="email">Email</label><br>
+                <input type="text" name="email" id="email"><br>
+            </td>
+        </tr>
+       <tr><td><input type="submit" name="register" value="Register"></td></tr>
+    
+    </table>
+    </form>
+   
+    <div>
+        {% if mydata %}
+        <h3>View Details</h3>
+        <table border="1" border-collapse="1">
+            <tr>
+                <th>S.no</th>
+                <th>Name</th>
+                <th>Phone number</th>
+                <th>Email</th>
+            </tr>
+            {% for data in mydata %}
+            <tr>
+                <td>{{forloop.counter}}</td>
+                <td>{{data.Name}}</td>
+                <td>{{data.Phno}}</td>
+                <td>{{data.Email}}</td>
+
+            </tr>
+            {% endfor %}
+        </table>
+        {% endif %}
+    </div>
+    <script>
+        $("document").ready(function(){
+            $('#search').keyup(function(){
+                alert(hi);
+            });
+
+        });
+    </script>
+
+    {% endblock %}
+
+    
+
+</body>
+</html>
