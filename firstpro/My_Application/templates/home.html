@@ -1,0 +1,158 @@
+<html>
+    <head>
+        <title>Home</title>
+        <style>
+            
+            #table{
+                border-collapse:collapse;
+                border-color: darkcyan;
+                border-width: 5px;
+            }
+            .container{
+                margin-left: 34%;
+                margin-top:5%;
+            }
+            h1{
+                margin-top:10%;
+                font-size: 60px;
+                color:green;
+            }
+            #search{
+               color:chocolate;
+               padding:2px 8px;
+               font-size: 22px;
+               border-width:2px;
+               border-radius: 5px;
+               border-color:rgba(200, 0, 255, 0.272);
+               outline-color:rgb(43, 226, 67);
+               font-family:Georgia, 'Times New Roman', Times, serif;
+               box-shadow: 1px 3px goldenrod;
+               
+                    }
+            label{
+                color:rgb(42, 165, 106);
+                font-weight: bold;
+               font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size:22px;
+                padding:6px;
+               
+            }
+
+            input{
+                border-color:rgba(24, 169, 221, 0.633);
+                padding: 5px 30px;
+                font-size:18px;
+                border-radius: 5px;
+                outline-color: rgba(0, 76, 255, 0.649);
+                box-shadow: 2px 2px 2px 2px grey;
+            }
+            #Register{
+                background-color: rgba(0, 128, 0, 0.67);
+                border-color:brown;
+                color:black;
+                padding:5px 40px;
+                box-shadow: 3px 3px brown;
+                font-weight: bold;
+            }
+            #h1{
+                color:rgb(128, 36, 0);
+                font-size: 30px;
+                font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            }
+            th{
+                font-size:25px;
+                padding:5px 10px;
+                border-width:5px; 
+                background-color:darkgrey;  
+            }
+            td{
+                font-size:25px;
+                padding:5px 10px;
+                border-width: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        {% block content %}
+        <div class="container">
+        <h1>Register Form</h1>
+        <form action="read " method="POST" autocomplete="off">
+            {% csrf_token %}
+            <table>
+            <div id="search1">
+                
+                <tr>
+                    <label for="search" style="color:rgba(100, 15, 0, 0.713);">Search </label>
+                    <input type="text" id="search" name="search">
+                </tr>
+            </div><br><br>
+            <div id="one">
+                <tr>
+                    <td>
+                        <label for="Name">Name</label><br>
+                        <input type="text" id="Name" name="Name">
+                    </td>
+                </tr>
+            </div>
+            <div id="two">
+                <tr>
+                    <td>
+                        <label for="Email">Email</label><br>
+                        <input type="text" id="Email" name="Email">
+                    </td>
+                </tr>
+            </div>
+            <div id="three">
+                <tr>
+                    <td>
+                        <label for="Address">Address</label><br>
+                        <input type="text" id="Address" name="Address"><br>
+                    </td>
+                </tr>
+            </div>
+            <div>
+                <tr>
+                    <td><br>
+                        <input type="submit" id="Register" name="Register">
+                    </td>
+                </tr>
+            </div>
+            </table>
+            {% if datas %}
+            <div>
+
+                <h1 id="h1"><u>View Details</u></h1>
+                <table border="1" id="table">
+                    <tr id="th">
+                        <th>S.No</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Address</th>
+                    </tr>
+                    {% for data in datas %}
+                    <tr>
+                        <td>{{forloop.counter}}</td>
+                        <td>{{data.name}}</td>
+                        <td>{{data.email}}</td>
+                        <td>{{data.address}}</td>
+                    </tr>
+                    {% endfor %}
+
+                </table>
+                {% endif %}
+
+
+
+            </div>
+
+
+
+
+
+        </form>
+    </div>
+        {% endblock %}
+      
+
+    </body>
+</html>
