@@ -1,0 +1,55 @@
+{% include 'navbar.html' %}
+{% block content %}
+<form action="profile" method="POST" autocomplete="off">
+  
+    
+    {% csrf_token %}
+    <div class="full">
+        
+    <table>
+        <h1 class="loginh">Login</h1>
+        <div>
+            <tr>
+                <td>
+                    <label for="Username">Username</label><br>
+                    <input type="text" id="Username" name="Username">
+                </td>
+            </tr>
+        </div>
+        <div>
+            <tr>
+                <td>
+                    <label for="passwords">Password</label><br>
+                    <input type="password" id="passwords" name="passwords">
+                </td>
+            </tr>
+        </div>
+        <div>
+            <tr>
+                <td>
+                    <label for="Re_passwords">Re_Password</label><br>
+                    <input type="password" id="Re_passwords" name="Re_passwords">
+                </td>
+            </tr>
+        </div>
+        <div>
+            <tr>
+                <td><br>
+                    <input type="submit" id="Login" id="Login" value="Login">
+                </td>
+            </tr>
+        </div><br>
+        <div>
+            {% if messages %}
+                {% for message in messages %}
+                    <div class="alert alert-{{ message.tags }}">
+                    {{message}}
+                    </div>
+                {% endfor %}
+            {% endif %}
+        </div>
+    </table>
+</div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+{% include 'navbar.html' %}
+{% block content %}
+<br>
+<form  method="POST" autocomplete="off">
+<div class="message">
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">
+                {{message}}
+            </div>
+        {% endfor %}
+    {% endif %}
+</div>
+        
+    {% csrf_token %}
+    
+    <div class="container1">
+    <br>
+    <table>
+        <h2 id="head">Registeration</h2>
+    
+       
+    <div>
+       
+        <tr>
+            <td>
+          
+            <label for="Name">Username</label><br>
+            <input type="text" id="Name" name="Name">
+            </td>
+        </tr>
+    </div>
+    <div>
+        <tr>
+            <td>
+                <label for="email_id">Email_id</label><br>
+                <input type="text" id="email_id" name="email_id">
+
+            </td>
+        </tr>
+        
+    </div>
+    <div>
+        <tr>
+            <td>
+                <label for="password">Password</label><br>
+                <input type="password" id="password" name="password">
+            </td>
+        </tr>
+       
+    </div>
+    <div>
+        <tr>
+            <td>
+                <label for="password1">Re_password</label><br>
+                <input type="password" id="password1" name="password1">
+            </td>
+        </tr>
+       
+    </div>
+    <div><tr>
+        <td><br>
+            <input type="submit" id="register" value="Register" name="register">
+        </td>
+    </tr>
+      
+    </div>
+
+</table>
+</div>
+</form>
+
+{% endblock %}
