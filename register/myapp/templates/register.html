@@ -2,15 +2,7 @@
 {% block content %}
 <br>
 <form  method="POST" autocomplete="off">
-<div class="message">
-    {% if messages %}
-        {% for message in messages %}
-            <div class="alert alert-{{ message.tags }}">
-                {{message}}
-            </div>
-        {% endfor %}
-    {% endif %}
-</div>
+
         
     {% csrf_token %}
     
@@ -64,6 +56,15 @@
         </td>
     </tr>
       
+    </div>
+    <div class="message">
+        {% if messages %}
+            {% for message in messages %}
+                <div class="alert alert-{{ message.tags }}">
+                    {{message}}
+                </div>
+            {% endfor %}
+        {% endif %}
     </div>
 
 </table>

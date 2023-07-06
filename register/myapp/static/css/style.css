@@ -166,6 +166,27 @@ span{
     padding:20px 40px;
     margin-left:45%;
   }
+  #table{
+    border:1px solid greenyellow;
+    border-collapse: collapse;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top:16%;
+    padding:20px 40px;
+    margin-left:45%;
+  }
+  .p{
+    margin-left:11%;
+    margin-top:4%;
+    font-size:23px;
+    color: aqua;
+
+  }
+  #login2{
+    color:chartreuse;
+  }
+
 
 
    
